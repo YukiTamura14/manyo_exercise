@@ -15,6 +15,8 @@
 ![2018-11-17 14 22 20](https://user-images.githubusercontent.com/35171408/48657480-b21ab200-ea74-11e8-9940-c446a06180ee.png)
 ![2018-11-17 14 22 31](https://user-images.githubusercontent.com/35171408/48657481-b3e47580-ea74-11e8-97c2-91a63e2179f0.png)
 
-データベース作成
+データベース作成　　
+　　
 ![2018-11-19 19 42 55](https://user-images.githubusercontent.com/35171408/48703390-d9b97800-ec36-11e8-8a90-230ac524ca9d.png)
+　　
 ![2018-11-19 19 43 19](https://user-images.githubusercontent.com/35171408/48703391-da520e80-ec36-11e8-8340-fed00c4ada29.png)
