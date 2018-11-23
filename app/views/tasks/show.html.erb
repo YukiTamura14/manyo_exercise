@@ -1,0 +1,10 @@
+<p>タスク詳細</p>
+
+<p>タスク名: <%= @task.name %></p>
+<p>タスク詳細: <%= @task.detail %></p>
+
+<%= form_with(model: @task, url: root_path, local: true, method: :get) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :detail %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>
