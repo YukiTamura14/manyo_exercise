@@ -2,3 +2,4 @@ ja:
   view:
     name: タスク名
     detail: 詳しい内容
+    created_at: 登録日時
