@@ -2,6 +2,7 @@
 
 <p><%= t('view.name') %>: <%= @task.name %></p>
 <p><%= t('view.detail') %>: <%= @task.detail %></p>
+<p><%= t('view.created_at') %>: <%= @task.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
 
 <%= form_with(model: @task, url: root_path, local: true, method: :get) do |form| %>
   <%= form.hidden_field :name %>
