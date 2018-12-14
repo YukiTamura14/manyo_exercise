@@ -1,0 +1,20 @@
+<p>タスク一覧</p>
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>タスク名</th>
+    <th>タスク内容</th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %></td>
+      <td><%= task.detail %></td>
+      <td><%= link_to "詳細を確認する", task_path(task.id) %></td>
+      <td><%= link_to "タスクを編集する", edit_task_path(task.id) %></td>
+      <td><%= link_to "削除する", task_path(task.id), method: :delete, data: { confirm: "本当に削除していいですか？"} %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "トップ画面に戻る", root_path %>
+<%= link_to "新しくタスクを登録する", new_task_path %>
