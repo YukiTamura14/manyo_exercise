@@ -6,15 +6,18 @@
   <tr>
     <th><%= t('view.name') %></th>
     <th><%= t('view.detail') %></th>
+    <th><%= t('view.expired_at') %></th>
     <th><%= t('view.created_at') %></th>
   </tr>
   </thead>
 
   <tbody>
+    <%= link_to "終了期限でソートする", tasks_path(sort_expired: "true") %>
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.name %></td>
         <td><%= task.detail %></td>
+        <td><%= task.expired_at %></td>
         <td><%= task.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td><%= link_to "詳細", task_path(task.id) %></td>
         <td><%= link_to "編集", edit_task_path(task.id) %></td>

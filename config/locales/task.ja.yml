@@ -2,4 +2,5 @@ ja:
   view:
     name: タスク名
     detail: 詳しい内容
+    expired_at: 終了期限
     created_at: 登録日時
