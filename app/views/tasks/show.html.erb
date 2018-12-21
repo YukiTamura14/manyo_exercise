@@ -1,11 +1,13 @@
-<p>タスク詳細</p>
+<p><%= t('view.index') %></p>
 
 <p><%= t('view.name') %>: <%= @task.name %></p>
 <p><%= t('view.detail') %>: <%= @task.detail %></p>
 <p><%= t('view.created_at') %>: <%= @task.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+<p><%= t('view.expired_at') %>: <%= @task.expired_at %></p>
 
 <%= form_with(model: @task, url: root_path, local: true, method: :get) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :detail %>
-  <%= form.submit "戻る", name: "back" %>
+  <%= form.hidden_field :expired_at %>
+  <%= form.submit t('view.back'), name: "back" %>
 <% end %>

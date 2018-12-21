@@ -1,0 +1,15 @@
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+/Users/yukitamura/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20181218-73739-ex821m.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20181218-73739-1hh15f5/bindex

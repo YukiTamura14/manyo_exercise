@@ -18,6 +18,11 @@
     <%= form.label :detail %>
     <%= form.text_field :detail %>
   </div>
+  <div class="task_expired">
+    <%= form.label :expired_at %>
+    <%= form.date_select :expired_at %>
+  </div>
+
   <%= form.submit %>
 <% end %>
-<%= link_to "タスク一覧画面にもどる", tasks_path %>
+<%= link_to t('view.back'), tasks_path %>
