@@ -4,3 +4,13 @@ ja:
     detail: 詳しい内容
     expired_at: 終了期限
     created_at: 登録日時
+    sort_expired: 終了期限でソートする
+    show_task_detail: 詳細
+    edit_task: 編集
+    destroy_task: 削除
+    create_task: 新しくタスクを登録する
+    go_to_top: トップ画面に戻る
+    back: タスク一覧に戻る
+    index: タスク一覧
+    show: タスク詳細
+    new: タスクの新規作成

@@ -1,0 +1,15 @@
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+/Users/yukitamura/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20181218-73739-u72mce.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/yukitamura/new_diver/task_management/vendor/bundler/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20181218-73739-76bjb/bootsnap

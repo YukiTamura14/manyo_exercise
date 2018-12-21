@@ -1,4 +1,4 @@
-<p>タスク詳細</p>
+<p><%= t('view.index') %></p>
 
 <p><%= t('view.name') %>: <%= @task.name %></p>
 <p><%= t('view.detail') %>: <%= @task.detail %></p>
@@ -9,5 +9,5 @@
   <%= form.hidden_field :name %>
   <%= form.hidden_field :detail %>
   <%= form.hidden_field :expired_at %>
-  <%= form.submit "戻る", name: "back" %>
+  <%= form.submit t('view.back'), name: "back" %>
 <% end %>
