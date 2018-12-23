@@ -8,6 +8,7 @@
     <th><%= t('view.detail') %></th>
     <th><%= t('view.expired_at') %></th>
     <th><%= t('view.created_at') %></th>
+    <th><%= t('view.status') %></th>
   </tr>
   </thead>
 
@@ -19,6 +20,8 @@
         <td><%= task.detail %></td>
         <td><%= task.expired_at %></td>
         <td><%= task.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= task.status %></td>
+
         <td><%= link_to t('view.show_task_detail'), task_path(task.id) %></td>
         <td><%= link_to t('view.edit_task'), edit_task_path(task.id) %></td>
         <td><%= link_to t('view.destroy_task'), task_path(task.id), method: :delete, data: { confirm: "本当に削除していいですか？"} %></td>

@@ -23,6 +23,10 @@
     <%= form.date_select :expired_at %>
   </div>
 
+  <div calss = "task_status">
+    <%= form.select :status, Task.statuses.keys.to_a, {} %>
+  </div>
+
   <%= form.submit %>
 <% end %>
 <%= link_to t('view.back'), tasks_path %>

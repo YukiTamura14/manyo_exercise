@@ -4,6 +4,7 @@ ja:
     detail: 詳しい内容
     expired_at: 終了期限
     created_at: 登録日時
+    status: ステータス
     sort_expired: 終了期限でソートする
     show_task_detail: 詳細
     edit_task: 編集
