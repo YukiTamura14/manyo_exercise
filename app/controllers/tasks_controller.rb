@@ -49,7 +49,7 @@ end
 private
 
 def task_params
-  params.require(:task).permit(:name, :detail, :expired_at)
+  params.require(:task).permit(:name, :detail, :expired_at, :status)
 end
 
 def set_task
