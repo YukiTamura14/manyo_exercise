@@ -2,11 +2,14 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:sort_expired] == "true"
-      @tasks = Task.sort_expired
-    else
-      @tasks = Task.recent
+    @tasks = Task.recent
+
+    if params[:task].present?
+      @tasks = Task.title_search(params[:task][:name]) if params[:task][:search] == "true"
+      @tasks = Task.status_search(params[:task][:status]) if params[:task][:status]
     end
+    
+    @tasks = Task.sort_expired if params[:sort_expired] == "true"
   end
 
   def new
