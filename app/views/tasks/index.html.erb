@@ -1,6 +1,15 @@
 <p><%= t('view.index') %></p>
 <p><%= notice %></p>
 
+<p>Task Search</p>
+<%= form_with(model: Task.new, method: :get, url: tasks_path, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.select :status, Task.statuses.keys, include_blank: true, selected: '' %>
+  <%= form.hidden_field :search, value: 'true' %>
+  <%= form.submit %>
+<% end %>
+
 <table>
   <thead>
   <tr>
