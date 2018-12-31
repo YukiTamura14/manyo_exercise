@@ -7,6 +7,6 @@ class Task < ApplicationRecord
   scope :sort_expired, -> { order(expired_at: :desc) }
   scope :title_search, -> (task_name) { where("name LIKE ?", "%#{ task_name }%") }
   scope :status_search, -> (status) { where(status: status) }
-
+  
   enum status: { 未着手: 1, 着手中: 2, 完了: 3 }
 end
