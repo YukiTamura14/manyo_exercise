@@ -1,13 +1,13 @@
 ## 開発環境
 言語・ミドルウェアなど
 ---
-・ローカル開発PC（Mac）  
+- ローカル開発PC(Mac)  
 
-・Ruby 2.5.1  
+- Ruby 2.5.1  
 
-・Ruby on Rails 5.1.6  
+- Ruby on Rails 5.1.6  
 
-・PostgreSQL 10.2  
+- PostgreSQL 10.2  
 ![2018-11-17 12 06 23](https://user-images.githubusercontent.com/35171408/48656641-64e61280-ea6b-11e8-9d4d-868bca99d9fc.png)  
 
 テーブル定義  
@@ -20,4 +20,3 @@
 
 データベースへの接続確認  
 ![2018-11-19 19 43 19](https://user-images.githubusercontent.com/35171408/48703391-da520e80-ec36-11e8-8340-fed00c4ada29.png)  
-  
