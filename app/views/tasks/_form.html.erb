@@ -25,7 +25,13 @@
   </div>
 
   <div calss = "task_status">
+    <%= form.label :status %>
     <%= form.select :status, Task.statuses.keys.to_a, {} %>
+  </div>
+
+  <div calss = "task_status">
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priorities.keys.to_a, {} %>
   </div>
 
   <%= form.submit %>

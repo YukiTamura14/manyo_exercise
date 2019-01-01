@@ -6,6 +6,8 @@ ja:
       task:
         name: タスク名
         detail: 詳しい内容
+        status: ステータス
+        priority: 優先度
         expired_at: 終了期限
         created_at: 登録日時
         updated_at: 更新日時
