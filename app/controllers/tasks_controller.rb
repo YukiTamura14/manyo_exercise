@@ -14,8 +14,9 @@ class TasksController < ApplicationController
       @tasks = Task.title_search(params[:task][:name])
                    .status_search(params[:task][:status])
     end
-    
+
     @tasks = Task.sort_expired if params[:sort_expired] == "true"
+    @tasks = Task.sort_priority if params[:sort_priority] == "true"
   end
 
   def new
@@ -58,7 +59,7 @@ end
 private
 
 def task_params
-  params.require(:task).permit(:name, :detail, :expired_at, :status)
+  params.require(:task).permit(:name, :detail, :expired_at, :status, :priority)
 end
 
 def set_task

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe "タスクモデル機能", type: :model do
-  let!(:task_a) { FactoryBot.create(:task, name: '最初のタスク', detail: '最初の詳細', expired_at: '2018-12-31', status: '未着手')}
-  let!(:task_b) { FactoryBot.create(:task, name: '二番目のタスク', detail: '二番目の詳細', expired_at: '2018-12-24', status: '着手中')}
-  let!(:task_c) { FactoryBot.create(:task, name: '三番目のタスク', detail: '三番目の詳細', expired_at: '2018-12-16', status: '完了')}
-  let!(:task_d) { FactoryBot.create(:task, name: '四番目のタスク', detail: '四番目の詳細', expired_at: '2019-1-1', status: '完了')}
+  let!(:task_a) { FactoryBot.create(:task, name: '最初のタスク', detail: '最初の詳細', expired_at: '2018-12-31', status: '未着手', priority: '高')}
+  let!(:task_b) { FactoryBot.create(:task, name: '二番目のタスク', detail: '二番目の詳細', expired_at: '2018-12-24', status: '着手中', priority: '中')}
+  let!(:task_c) { FactoryBot.create(:task, name: '三番目のタスク', detail: '三番目の詳細', expired_at: '2018-12-16', status: '完了', priority: '中')}
+  let!(:task_d) { FactoryBot.create(:task, name: '四番目のタスク', detail: '四番目の詳細', expired_at: '2019-01-01', status: '完了', priority: '低')}
 
   describe 'バリデーションのテスト' do
     it "nameが空ならバリデーションが通らない" do
