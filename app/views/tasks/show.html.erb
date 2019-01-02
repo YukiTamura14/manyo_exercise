@@ -1,17 +1,47 @@
-<p><%= t('view.index') %></p>
+<h2><%= t('view.show') %></h2>
+<table class="table">
+  <thead></thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= t('view.name') %></th>
+      <td><%= @task.name %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('view.detail') %></th>
+      <td><%= @task.detail %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('view.created_at') %></th>
+      <td><%= @task.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('view.expired_at') %></th>
+      <td><%= @task.expired_at %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('view.status') %></th>
+      <td><%= @task.status %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('view.priority') %></th>
+      <td><%= @task.priority %></td>
+    </tr>
+    <tr>
+      <th>
+        <%= link_to t('view.edit_task'), edit_task_path(@task.id), class: 'btn btn-outline-success' %>
+        <%= link_to t('view.destroy_task'), task_path(@task.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-outline-danger' %>
+      </th>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-<p><%= t('view.name') %>: <%= @task.name %></p>
-<p><%= t('view.detail') %>: <%= @task.detail %></p>
-<p><%= t('view.created_at') %>: <%= @task.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
-<p><%= t('view.expired_at') %>: <%= @task.expired_at %></p>
-<p><%= t('view.status') %>: <%= @task.status %></p>
-<p><%= t('view.priority') %>: <%= @task.priority %></p>
-
-<%= form_with(model: @task, url: root_path, local: true, method: :get) do |form| %>
-  <%= form.hidden_field :name %>
-  <%= form.hidden_field :detail %>
-  <%= form.hidden_field :expired_at %>
-  <%= form.hidden_field :status %>
-  <%= form.hidden_field :priority %>
-  <%= form.submit t('view.back'), name: "back" %>
-<% end %>
+<%# TO DO confirm画面実装時に使用する %>
+<%#= form_with(model: @task, url: root_path, local: true, method: :get) do |form| %>
+  <%#= form.hidden_field :name %>
+  <%#= form.hidden_field :detail %>
+  <%#= form.hidden_field :expired_at %>
+  <%#= form.hidden_field :status %>
+  <%#= form.hidden_field :priority %>
+  <%#= form.submit t('view.back'), name: "back" %>
+<%# end %>

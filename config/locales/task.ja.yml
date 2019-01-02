@@ -9,11 +9,12 @@ ja:
     show_task_detail: 詳細
     edit_task: 編集
     destroy_task: 削除
-    create_task: 新しくタスクを登録する
+    create_task: 新規登録
     go_to_top: トップ画面に戻る
     back: タスク一覧に戻る
     show: タスク詳細
-    new: タスクの新規作成
+    new: タスクの新規登録
+    error_count: 件のエラーがあります
 
     index:
       list: タスク一覧
