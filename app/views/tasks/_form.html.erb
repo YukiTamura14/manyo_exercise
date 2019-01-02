@@ -1,39 +1,33 @@
-
-<%= form_with(model: @task, local: true) do |form| %>
-  <% if @task.errors.any? %>
-    <div id ="error_explanation">
-      <h2><%= @task.errors.count %>件のエラーがあります。</h2>
-      <ul>
-        <% @task.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="task_create_form">
+  <%= form_with(model: @task, local: true) do |form| %>
+    <% if @task.errors.any? %>
+      <div id ="error_explanation">
+        <h2><%= @task.errors.count %><%= t('view.error_count') %></h2>
+        <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div class="task_name">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'col-sm-4 form-control' %>
+      </div>
+      <div class="task_detail form-group">
+        <%= form.label :detail %>
+        <%= form.text_area :detail, class: 'col-sm-4 form-control', rows: "3"%>
+      </div>
+      <div class="task_expired form-group">
+        <%= form.label :expired_at %>
+        <%= form.date_select :expired_at %>
+      </div>
+      <div calss="task_status_priority">
+        <%= form.label :status %>
+        <%= form.select :status, Task.statuses.keys.to_a, {} %>
+        <%= form.label :priority %>
+        <%= form.select :priority, Task.priorities.keys.to_a, {} %>
+      </div>
+    <%= form.submit class: 'btn btn-primary submit_btn'%>
   <% end %>
-
-  <div class="task_name">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="task_detail">
-    <%= form.label :detail %>
-    <%= form.text_field :detail %>
-  </div>
-  <div class="task_expired">
-    <%= form.label :expired_at %>
-    <%= form.date_select :expired_at %>
-  </div>
-
-  <div calss = "task_status">
-    <%= form.label :status %>
-    <%= form.select :status, Task.statuses.keys.to_a, {} %>
-  </div>
-
-  <div calss = "task_status">
-    <%= form.label :priority %>
-    <%= form.select :priority, Task.priorities.keys.to_a, {} %>
-  </div>
-
-  <%= form.submit %>
-<% end %>
-<%= link_to t('view.back'), tasks_path %>
+</div>
