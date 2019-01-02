@@ -43,3 +43,5 @@
 </table>
 <%= link_to t('view.go_to_top'), root_path %>
 <%= link_to t('view.create_task'), new_task_path %>
+<%= paginate @tasks %>
+<%= page_entries_info @tasks %>

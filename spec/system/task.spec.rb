@@ -60,6 +60,7 @@ describe "タスク管理機能", type: :system do
     let(:tasks) { page.all('tbody tr') }
     before do
       visit tasks_path
+      sleep 1
       click_link '終了期限でソートする'
     end
     it '終了期限の降順で表示される' do
@@ -75,6 +76,7 @@ describe "タスク管理機能", type: :system do
     let(:tasks) { page.all('tbody tr') }
     before do
       visit tasks_path
+      sleep 1
       click_link '優先順位でソートする'
     end
     it '優先度の高い順で表示される' do
