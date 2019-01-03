@@ -1,0 +1,23 @@
+<br />
+<h3><%= current_user.name %>詳細</h3>
+<br />
+<table class="table">
+  <tbody>
+    <tr>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th><%= User.human_attribute_name(:created_at) %></th>
+      <td><%= @user.created_at %></td>
+    </tr>
+    <tr>
+      <th><%= User.human_attribute_name(:updated_at) %></th>
+      <td><%= @user.updated_at %></td>
+    </tr>
+  </tbody>
+</table>

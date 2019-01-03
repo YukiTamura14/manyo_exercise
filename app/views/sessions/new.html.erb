@@ -1,0 +1,17 @@
+<div class='row form'>
+  <div class='col-md-6 col-md-offset-3'>
+    <h2><%= t('view.login') %></h2>
+    <%= form_with(scope: :session, local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: 'form-control' %>
+      </div>
+        <%= form.submit t('view.do_login'), class: 'btn btn-primary btn-block' %>
+    <% end %>
+    <p><%= t('view.have_account?') %><%= link_to t('view.create_account'), new_user_path %></p>
+  </div>
+</div>

@@ -2,33 +2,33 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.recent.page(params[:page])
+    @tasks = current_user.tasks.recent.page(params[:page])
 
-    if params[:task].present? && params[:task][:search] == "true"
+    if params[:task].present? && params[:task][:search] == 'true'
       @tasks = Task.title_search(params[:task][:name]).page(params[:page])
     end
     if params[:task].present? && params[:task][:status].present?
       @tasks = Task.status_search(params[:task][:status]).page(params[:page])
     end
-    if params[:task].present? && params[:task][:search] == "true" && params[:task][:status].present?
+    if params[:task].present? && params[:task][:search] == 'true' && params[:task][:status].present?
       @tasks = Task.title_search(params[:task][:name])
                    .status_search(params[:task][:status]).page(params[:page])
     end
 
-    @tasks = Task.sort_expired.page(params[:page]) if params[:sort_expired] == "true"
-    @tasks = Task.sort_priority.page(params[:page]) if params[:sort_priority] == "true"
+    @tasks = Task.sort_expired.page(params[:page]) if params[:sort_expired] == 'true'
+    @tasks = Task.sort_priority.page(params[:page]) if params[:sort_priority] == 'true'
   end
 
   def new
     if params[:back]
-      @task = Task.new(task_params)
+      @task = current_user.tasks.build(task_params)
     else
       @task = Task.new
     end
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to tasks_path
     else
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: "タスクを削除しました。"
+    redirect_to tasks_path, notice: 'タスクを削除しました。'
   end
 
   def edit
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "タスクを編集しました。"
+      redirect_to tasks_path, notice: 'タスクを編集しました。'
     else
       render :new
     end
@@ -63,5 +63,5 @@ def task_params
 end
 
 def set_task
-  @task = Task.find(params[:id])
+  @task = current_user.tasks.find(params[:id])
 end
