@@ -1,0 +1,29 @@
+<br />
+<h2>ユーザー一覧</h2>
+<%= link_to 'ユーザー新規登録', new_admin_user_path, class: 'btn btn-primary submit_btn'%>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:admin) %></th>
+      <th><%= User.human_attribute_name(:created_at) %></th>
+      <th><%= User.human_attribute_name(:updated_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, [:admin, user] %></td>
+        <td><%= user.email %></td>
+        <td><%= user.admin? ? 'あり' : 'なし' %></td>
+        <td><%= user.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= user.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td>
+          <%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-outline-success' %>
+          <%= link_to '削除', [:admin, user], method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？"}, class: 'btn btn-outline-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

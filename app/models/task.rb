@@ -2,7 +2,9 @@ class Task < ApplicationRecord
   validates :name, presence: true
   validates :detail, presence: true
   validates :expired_at, presence: true
-  # validates :status, inclusion: { in: %w(未着手 着手中 完了) }
+
+  belongs_to :user
+  
   scope :recent, -> { order(created_at: :desc) }
   scope :sort_expired, -> { order(expired_at: :desc) }
   scope :sort_priority, -> { order(priority: :asc) }
