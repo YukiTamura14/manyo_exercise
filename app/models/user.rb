@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length:{ minimum:5 }
 
   has_many :tasks, dependent: :destroy
+
+  paginates_per 10
 end
