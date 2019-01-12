@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe "タスク管理機能", type: :system do
-  describe 'タスク作成のテスト' do
-    let(:user_a){ FactoryBot.create(:user, name: 'ユーザーA', email: 'a@example.com')}
-    let(:user_b){ FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com')}
-    let!(:task_a){ FactoryBot.create(:task, name: 'Aのタスク', user: user_a) }
+describe "ユーザー管理機能", type: :system do
+  describe 'ユーザー作成のテスト' do
+    let(:user_a) { FactoryBot.create(:user, name: 'ユーザーA', email: 'a@example.com')}
+    let(:user_b) { FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com')}
+    let!(:task_a) { FactoryBot.create(:task, name: 'Aのタスク', user: user_a) }
 
     before do
       visit login_path
