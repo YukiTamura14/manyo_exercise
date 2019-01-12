@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
 
   def index
-    @users = User.all
+    @users = User.all.includes(:tasks)
   end
 
   def new
@@ -21,6 +21,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tasks = @user.tasks.recent.page(params[:page])
   end
 
   def edit
