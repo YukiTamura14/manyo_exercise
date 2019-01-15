@@ -37,5 +37,5 @@ class UsersController < ApplicationController
 
   def redirect_if_logged_in
     redirect_to tasks_path if current_user.present?
-  end
+ end
 end

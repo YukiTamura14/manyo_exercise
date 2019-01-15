@@ -3,6 +3,7 @@
     <h2><%= t('view.sign_up') %></h2>
     <%= form_with(model: @user, local: true) do |form| %>
       <% if @user.errors.any? %>
+      <h3><%= @user.errors.count %><%= t('view.error_count') %></h3>
         <div id="error_explanation">
           <ul>
           <% @user.errors.full_messages.each do |message| %>
