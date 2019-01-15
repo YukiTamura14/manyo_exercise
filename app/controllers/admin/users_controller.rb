@@ -1,6 +1,5 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin
-  # after_action :never_destroy_last_admin, only: [:destroy]
 
   def index
     @users = User.all.includes(:tasks)
