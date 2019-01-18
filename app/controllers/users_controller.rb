@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
+      login(@user)
       redirect_to user_path(session[:user_id]), notice: "ユーザー「#{@user.name}」を登録しました"
     else
       render :new
