@@ -5,18 +5,18 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.recent.page(params[:page])
 
     if params[:task].present? && params[:task][:search] == 'true'
-      @tasks = Task.title_search(params[:task][:name]).page(params[:page])
+      @tasks = current_user.tasks.title_search(params[:task][:name]).page(params[:page])
     end
     if params[:task].present? && params[:task][:status].present?
-      @tasks = Task.status_search(params[:task][:status]).page(params[:page])
+      @tasks = current_user.tasks.status_search(params[:task][:status]).page(params[:page])
     end
     if params[:task].present? && params[:task][:search] == 'true' && params[:task][:status].present?
-      @tasks = Task.title_search(params[:task][:name])
+      @tasks = current_user.tasks.title_search(params[:task][:name])
                    .status_search(params[:task][:status]).page(params[:page])
     end
 
-    @tasks = Task.sort_expired.page(params[:page]) if params[:sort_expired] == 'true'
-    @tasks = Task.sort_priority.page(params[:page]) if params[:sort_priority] == 'true'
+    @tasks = current_user.tasks.sort_expired.page(params[:page]) if params[:sort_expired] == 'true'
+    @tasks = current_user.tasks.sort_priority.page(params[:page]) if params[:sort_priority] == 'true'
   end
 
   def new
