@@ -4,15 +4,11 @@ class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks.recent.page(params[:page])
 
-    if params[:task].present? && params[:task][:search] == 'true'
+    if params[:task].present?
       @tasks = current_user.tasks.title_search(params[:task][:name]).page(params[:page])
-    end
-    if params[:task].present? && params[:task][:status].present?
-      @tasks = current_user.tasks.status_search(params[:task][:status]).page(params[:page])
-    end
-    if params[:task].present? && params[:task][:search] == 'true' && params[:task][:status].present?
-      @tasks = current_user.tasks.title_search(params[:task][:name])
-                   .status_search(params[:task][:status]).page(params[:page])
+      if params[:task][:status].present?
+        @tasks = current_user.tasks.status_search(params[:task][:status]).page(params[:page])
+      end
     end
 
     @tasks = current_user.tasks.sort_expired.page(params[:page]) if params[:sort_expired] == 'true'

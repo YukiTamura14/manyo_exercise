@@ -7,7 +7,6 @@
     <%= form.text_field :name, class: 'col-sm-4 form-control',placeholder: "検索.." %>
     <%= form.label :status, class: 'col-1 col-form-label'%>
     <%= form.select :status, Task.statuses.keys, include_blank: true, selected: '' %>
-    <%= form.hidden_field :search, value: 'true' %>
     <%= form.submit '検索', class: 'btn btn-outline-dark' %>
   </div>
 <% end %>
