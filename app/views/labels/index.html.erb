@@ -1,0 +1,27 @@
+<br />
+<h2>ラベル一覧</h2>
+<br />
+<div>
+  <%= link_to "ラベル新規作成", new_label_path, class: 'btn btn-primary task_name' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ラベル名</th>
+      <th>更新日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @labels.each do |label| %>
+      <tr>
+        <td><%= label.name %></td>
+        <td><%= label.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td>
+          <%= link_to "編集", edit_label_path(label.id), class: 'btn btn-outline-success' %>
+          <%= link_to "削除", label_path(label.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-outline-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

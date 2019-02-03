@@ -3,6 +3,7 @@
     <% if @task.errors.any? %>
       <div id ="error_explanation">
         <h3><%= @task.errors.count %><%= t('view.error_count') %></h3>
+
         <ul>
           <% @task.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -10,6 +11,7 @@
         </ul>
       </div>
     <% end %>
+
       <div class="task_name">
         <%= form.label :name %>
         <%= form.text_field :name, class: 'col-sm-4 form-control' %>
@@ -20,7 +22,7 @@
       </div>
       <div class="task_expired form-group">
         <%= form.label :expired_at %>
-        <%= form.date_select :expired_at %>
+        <%= form.date_field :expired_at, class: 'col-sm-2 form-control' %>
       </div>
       <div calss="task_status_priority">
         <%= form.label :status %>
@@ -28,6 +30,18 @@
         <%= form.label :priority %>
         <%= form.select :priority, Task.priorities.keys.to_a, {} %>
       </div>
+
+      <div class="mt-3">
+        <% Label.all.each do |label| %>
+          <% if @task.labels.include?(label[:id]) %>
+            <%= form.check_box :label_ids, { multiple:  true, checked: label[:checked], disabled: label[:disabled], include_hidden: false },  label[:id] %>
+          <% else %>
+            <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
+          <% end %>
+          <%= label.name %>
+        <% end %>
+     </div>
+
     <%= form.submit class: 'btn btn-primary submit_btn'%>
   <% end %>
 </div>
