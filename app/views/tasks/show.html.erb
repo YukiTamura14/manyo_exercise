@@ -26,6 +26,14 @@
       <td><%= @task.priority %></td>
     </tr>
     <tr>
+      <th scope="row">ラベル</th>
+      <td>
+        <% @task.labels.each do |label| %>
+          <%= label.name %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
       <th>
         <%= link_to t('view.edit_task'), edit_task_path(@task.id), class: 'btn btn-outline-success' %>
         <%= link_to t('view.destroy_task'), task_path(@task.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-outline-danger' %>
@@ -34,13 +42,3 @@
     </tr>
   </tbody>
 </table>
-
-<%# TO DO confirm画面実装時に使用する %>
-<%#= form_with(model: @task, url: root_path, local: true, method: :get) do |form| %>
-  <%#= form.hidden_field :name %>
-  <%#= form.hidden_field :detail %>
-  <%#= form.hidden_field :expired_at %>
-  <%#= form.hidden_field :status %>
-  <%#= form.hidden_field :priority %>
-  <%#= form.submit t('view.back'), name: "back" %>
-<%# end %>

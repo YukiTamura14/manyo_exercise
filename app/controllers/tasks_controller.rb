@@ -2,8 +2,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
+    @search_task = Task.new
     @tasks = current_user.tasks.recent.page(params[:page])
-
+    
     if params[:task].present?
       @tasks = current_user.tasks.title_search(params[:task][:name]).page(params[:page])
       if params[:task][:status].present?
@@ -18,6 +19,7 @@ class TasksController < ApplicationController
   def new
     if params[:back]
       @task = current_user.tasks.build(task_params)
+      @task.labels.build
     else
       @task = Task.new
     end
@@ -25,6 +27,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
+
     if @task.save
       redirect_to tasks_path
     else
@@ -41,6 +44,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @label_ids = @task.labelings.pluck(:label_id)
   end
 
   def update
@@ -55,7 +59,7 @@ end
 private
 
 def task_params
-  params.require(:task).permit(:name, :detail, :expired_at, :status, :priority)
+  params.require(:task).permit(:name, :detail, :expired_at, :status, :priority, label_ids: [])
 end
 
 def set_task

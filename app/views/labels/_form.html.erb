@@ -1,0 +1,21 @@
+<div class="task_create_form">
+  <%= form_with(model: label, local: true) do |form| %>
+    <% if @label.errors.any? %>
+      <div id ="error_explanation">
+        <h3><%= @label.errors.count %><%= t('view.error_count') %></h3>
+        <ul>
+          <% @label.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="task_name">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'col-sm-4 form-control' %>
+    </div>
+
+    <%= form.submit class: 'btn btn-primary submit_btn'%>
+  <% end %>
+</div>

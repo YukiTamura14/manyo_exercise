@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   validates :expired_at, presence: true
 
   belongs_to :user
+  has_many :labelings, dependent: :destroy
+  has_many :labels, through: :labelings, source: :label, inverse_of: :tasks
 
   scope :recent, -> { order(created_at: :desc) }
   scope :sort_expired, -> { order(expired_at: :desc) }
