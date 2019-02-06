@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @search_task = Task.new
     @tasks = current_user.tasks.recent.page(params[:page])
-    
+
     if params[:task].present?
       @tasks = current_user.tasks.title_search(params[:task][:name]).page(params[:page])
       if params[:task][:status].present?
