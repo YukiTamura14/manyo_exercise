@@ -30,18 +30,23 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     if @user.update(user_params)
-      redirect_to admin_users_path(@user), notice: "ユーザー「#{@user.name}」を更新しました"
+      flash[:success] = "ユーザー「#{@user.name}」を更新しました"
+      redirect_to admin_users_path(@user)
     else
+      flash.now[:danger] = "「#{@user.name}」は最後の管理者のため削除できません"
       render :new
     end
   end
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を削除しました"
+    if @user.destroy
+      flash[:success] = "ユーザー「#{@user.name}」を削除しました"
+    else
+      flash[:danger] = "「#{@user.name}」は最後の管理者のため削除できません"
+    end
+      redirect_to admin_users_path
   end
 
   private
