@@ -10,6 +10,9 @@ class TasksController < ApplicationController
       if params[:task][:status].present?
         @tasks = current_user.tasks.status_search(params[:task][:status]).page(params[:page])
       end
+      if params[:task][:label_id].present?
+        @tasks = current_user.tasks.label_search(params[:task][:label_id]).page(params[:page])
+      end
     end
 
     @tasks = current_user.tasks.sort_expired.page(params[:page]) if params[:sort_expired] == 'true'

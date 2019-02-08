@@ -34,7 +34,6 @@ class Admin::UsersController < ApplicationController
       flash[:success] = "ユーザー「#{@user.name}」を更新しました"
       redirect_to admin_users_path(@user)
     else
-      flash.now[:danger] = "「#{@user.name}」は最後の管理者のため削除できません"
       render :new
     end
   end
