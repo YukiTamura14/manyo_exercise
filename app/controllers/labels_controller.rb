@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LabelsController < ApplicationController
-  before_action :set_label, only: [:edit, :update, :destroy]
+  before_action :set_label, only: %i[edit update destroy]
 
   def index
     @labels = Label.all.update_order
@@ -18,8 +20,7 @@ class LabelsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @label.update(label_params)

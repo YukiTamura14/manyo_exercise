@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "タスク管理機能", type: :system do
+describe 'タスク管理機能', type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:task_a) { FactoryBot.create(:task, name: '最初のタスク', detail: '最初の詳細', expired_at: '2018-12-31', status: '未着手', priority: '高', user: user) }
   let!(:task_b) { FactoryBot.create(:task, name: '二番目のタスク', detail: '二番目の詳細', expired_at: '2018-12-24', status: '着手中', priority: '中', user: user) }
@@ -12,7 +14,7 @@ describe "タスク管理機能", type: :system do
     fill_in 'Email', with: 'test1@example.com'
     fill_in 'Password', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content "テストユーザータスク一覧"
+    expect(page).to have_content 'テストユーザータスク一覧'
   end
 
   describe 'タスク作成のテスト' do
@@ -23,11 +25,11 @@ describe "タスク管理機能", type: :system do
       fill_in '終了期限', with: '2019-02-28'
       click_on '登録する'
     end
-  # save_and_open_page
-  it '作成したタスクが表示される' do
-    expect(page).to have_content '夕ご飯の買い物'
-    expect(page).to have_content '玉ねぎ'
-  end
+    # save_and_open_page
+    it '作成したタスクが表示される' do
+      expect(page).to have_content '夕ご飯の買い物'
+      expect(page).to have_content '玉ねぎ'
+    end
   end
 
   describe 'タスク一覧のテスト' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::UsersController < ApplicationController
   before_action :require_admin
 
@@ -20,6 +22,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    binding.pry
     @user = User.find(params[:id])
     @tasks = @user.tasks.recent.page(params[:page])
   end
@@ -43,9 +46,9 @@ class Admin::UsersController < ApplicationController
     if @user.destroy
       flash[:success] = "ユーザー「#{@user.name}」を削除しました"
     else
-      flash[:danger] = "「#{@user.name}」は最後の管理者のため削除できません"
+      flash[:danger] = @user.errors.full_messages
     end
-      redirect_to admin_users_path
+    redirect_to admin_users_path
   end
 
   private
@@ -61,7 +64,7 @@ class Admin::UsersController < ApplicationController
 
   def render_404
     respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+      format.html { render file: "#{Rails.root}/public/404", layout: false, status: :not_found }
     end
   end
 end

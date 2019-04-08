@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
-describe "ユーザー管理機能", type: :system do
+describe 'ユーザー管理機能', type: :system do
   describe '管理者機能のテスト' do
-    let!(:admin) { FactoryBot.create(:user, admin: true ) }
-    let(:user_a) { FactoryBot.create(:user, name: 'ユーザーA', email: 'a@example.com')}
-    let(:user_b) { FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com')}
+    let!(:admin) { FactoryBot.create(:user, admin: true) }
+    let(:user_a) { FactoryBot.create(:user, name: 'ユーザーA', email: 'a@example.com') }
+    let(:user_b) { FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com') }
     let!(:task_admin) { FactoryBot.create(:task, name: 'adminのタスク', detail: 'adminのタスクの詳細', expired_at: '2018-12-31', status: '完了', priority: '高', user: admin) }
     let!(:task_b) { FactoryBot.create(:task, name: 'user_aのタスク', detail: 'user_aタスクの詳細', expired_at: '2018-12-24', status: '着手中', priority: '中', user: user_a) }
     let!(:task_c) { FactoryBot.create(:task, name: 'user_bのタスク', detail: 'user_bタスクの詳細', expired_at: '2018-12-16', status: '未着手', priority: '低', user: user_b) }
@@ -22,10 +24,10 @@ describe "ユーザー管理機能", type: :system do
       end
 
       it 'ユーザー一覧ページが表示される' do
-        expect(page).to have_content "ユーザー一覧"
-        expect(page).to have_content "ユーザー新規登録"
-        expect(page).to have_content "ユーザーA"
-        expect(page).to have_content "ユーザーB"
+        expect(page).to have_content 'ユーザー一覧'
+        expect(page).to have_content 'ユーザー新規登録'
+        expect(page).to have_content 'ユーザーA'
+        expect(page).to have_content 'ユーザーB'
       end
     end
 

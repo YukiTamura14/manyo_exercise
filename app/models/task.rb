@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Task < ApplicationRecord
   validates :name, presence: true
   validates :detail, presence: true
@@ -11,10 +13,10 @@ class Task < ApplicationRecord
   scope :sort_expired, -> { order(expired_at: :desc) }
   scope :sort_priority, -> { order(priority: :asc) }
 
-  scope :title_search, -> (task_name) { where("name LIKE ?", "%#{ task_name }%") }
-  scope :status_search, -> (status) { where(status: status) }
+  scope :title_search, ->(task_name) { where('name LIKE ?', "%#{task_name}%") }
+  scope :status_search, ->(status) { where(status: status) }
 
-  scope :label_search, -> (label_id) {
+  scope :label_search, lambda { |label_id|
     task_ids = Labeling.where(label_id: label_id).pluck(:task_id)
     where(id: task_ids)
   }

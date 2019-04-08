@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :login_required
   before_action :redirect_if_logged_in, only: [:new]
 
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: session_params[:email])
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
       login(user)
       redirect_to root_path, notice: 'ログインしました'
     else
-      flash.now[:alert] = "メールアドレスまたはパスワードの入力に誤りがあります。"
+      flash.now[:alert] = 'メールアドレスまたはパスワードの入力に誤りがあります。'
       render :new
     end
   end

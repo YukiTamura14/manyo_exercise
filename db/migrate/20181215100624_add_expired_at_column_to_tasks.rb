@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddExpiredAtColumnToTasks < ActiveRecord::Migration[5.2]
   def up
     add_column :tasks, :expired_at, :date, null: false, default: -> { 'NOW()' }

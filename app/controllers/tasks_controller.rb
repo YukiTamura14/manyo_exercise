@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @search_task = Task.new
@@ -12,6 +14,7 @@ class TasksController < ApplicationController
       end
       if params[:task][:label_id].present?
         @tasks = current_user.tasks.label_search(params[:task][:label_id]).page(params[:page])
+        binding.pry
       end
     end
 
@@ -38,8 +41,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @task.destroy

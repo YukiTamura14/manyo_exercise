@@ -43,6 +43,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'faker'
   gem "launchy"
+  gem 'rubocop', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

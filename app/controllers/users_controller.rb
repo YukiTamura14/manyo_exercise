@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   skip_before_action :login_required
   before_action :set_user, only: [:show]
@@ -18,8 +20,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
 
